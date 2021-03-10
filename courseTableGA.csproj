@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="Room.cs" />
+    <Compile Include="room.cs" />
+    <Compile Include="teacher.cs" />
   </ItemGroup>
 </Project>
