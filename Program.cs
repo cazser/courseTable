@@ -6,8 +6,8 @@ namespace courseTableGA
     {
         static void Main(string[] args)
         {
-            Teacher teacher = new Teacher(1, "王富贵");
-            Console.WriteLine("{0}号老师叫{1}", teacher.Id, teacher.Name);
+            TimeSlot timeSlot = new TimeSlot(1, "8:00am~9:30am");
+            Console.WriteLine("时间段{0}在{1}", timeSlot.Id, timeSlot.TimeSegment);
         }
     }
 }

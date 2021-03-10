@@ -10,5 +10,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="room.cs" />
     <Compile Include="teacher.cs" />
+    <Compile Include="timeSlot.cs" />
   </ItemGroup>
 </Project>
