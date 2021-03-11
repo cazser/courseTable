@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Course;
-
+using Algorithm;
 //!主要的类课程表(CourseTable)类
 
 public partial class CourseTable
@@ -71,35 +72,24 @@ public partial class CourseTable
     }
 
 
-    public void addModule(int moduleId, String moduleCode, String module, int professorIds[])
+    public void AddModule(int moduleId, string moduleCode, string module, int[] teacherIds)
     {
-        this.modules.put(moduleId, new Module(moduleId, moduleCode, module, professorIds));
+        this.modules.Add(moduleId, new Module(moduleId, moduleCode, module, teacherIds));
     }
 
-    /**
-     * Add new group
-     * 
-     * @param groupId
-     * @param groupSize
-     * @param moduleIds
-     */
-    public void addGroup(int groupId, int groupSize, int moduleIds[])
+
+    public void AddGroup(int groupId, int groupSize, int[] moduleIds)
     {
-        this.groups.put(groupId, new Group(groupId, groupSize, moduleIds));
+        this.groups.Add(groupId, new Group(groupId, groupSize, moduleIds));
         this.numClasses = 0;
     }
 
-    /**
-     * Add new timeslot
-     * 
-     * @param timeslotId
-     * @param timeslot
-     */
-    public void addTimeslot(int timeslotId, String timeslot)
-    {
-        this.timeslots.put(timeslotId, new Timeslot(timeslotId, timeslot));
-    }
 
+    public void AddTimeSlot(int timeslotId, string timeslot)
+    {
+        this.timeslots.Add(timeslotId, new TimeSlot(timeslotId, timeslot));
+    }
+    //!以下未从Java转换
     /**
      * Create classes using individual's chromosome
      * 
@@ -156,13 +146,13 @@ public partial class CourseTable
      * @param roomId
      * @return room
      */
-    public Room getRoom(int roomId)
+    public Room GetRoom(int roomId)
     {
-        if (!this.rooms.containsKey(roomId))
+        if (!this.rooms.ContainsKey(roomId))
         {
-            System.out.println("Rooms doesn't contain key " + roomId);
+            Console.WriteLine("Rooms doesn't contain key " + roomId);
         }
-        return (Room)this.rooms.get(roomId);
+        return (Room)this.rooms[roomId];
     }
     /**
      * Get random room
@@ -218,7 +208,7 @@ public partial class CourseTable
      */
     public Group getGroup(int groupId)
     {
-        return (Group)this.groups.get(groupId);
+        return (Group)this.groups[groupId];
     }
 
     /**
@@ -237,9 +227,9 @@ public partial class CourseTable
      * @param timeslotId
      * @return timeslot
      */
-    public Timeslot getTimeslot(int timeslotId)
+    public TimeSlot getTimeslot(int timeslotId)
     {
-        return (Timeslot)this.timeslots.get(timeslotId);
+        return (TimeSlot)this.timeslots[timeslotId];
     }
 
     /**
@@ -247,7 +237,7 @@ public partial class CourseTable
      * 
      * @return timeslot
      */
-    public Timeslot getRandomTimeslot()
+    public TimeSlot getRandomTimeslot()
     {
         Object[] timeslotArray = this.timeslots.values().toArray();
         Timeslot timeslot = (Timeslot)timeslotArray[(int)(timeslotArray.length * Math.random())];

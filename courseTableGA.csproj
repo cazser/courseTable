@@ -15,5 +15,6 @@
     <Compile Include="group.cs" />
     <Compile Include="module.cs" />
     <Compile Include="courseTable.cs" />
+    <Compile Include="Individual.cs" />
   </ItemGroup>
 </Project>
