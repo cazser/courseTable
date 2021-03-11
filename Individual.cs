@@ -1,3 +1,4 @@
+using System;
 using Course;
 namespace Algorithm
 {
@@ -10,7 +11,7 @@ namespace Algorithm
         //?原来java里的类是TimeTable我改成了课程表
         public Individual(CourseTable timetable)
         {
-            int numClasses = timetable.getNumClasses();
+            int numClasses = timetable.GetNumClasses();
 
             // 1 gene for room, 1 for time, 1 for professor
             int chromosomeLength = numClasses * 3;
@@ -18,24 +19,24 @@ namespace Algorithm
             int[] newChromosome = new int[chromosomeLength];
             int chromosomeIndex = 0;
             // Loop through groups
-            foreach (Group group in timetable.getGroupsAsArray())
+            foreach (Group group in timetable.GetGroupsAsArray())
             {
                 // Loop through modules
                 foreach (int moduleId in group.Modules)
                 {
                     // Add random time
-                    int timeslotId = timetable.getRandomTimeslot().getTimeslotId();
+                    int timeslotId = timetable.GetRandomTimeslot().Id;
                     newChromosome[chromosomeIndex] = timeslotId;
                     chromosomeIndex++;
 
                     // Add random room
-                    int roomId = timetable.getRandomRoom().getRoomId();
+                    int roomId = timetable.GetRandomRoom().Id;
                     newChromosome[chromosomeIndex] = roomId;
                     chromosomeIndex++;
 
                     // Add random professor
-                    Module module = timetable.getModule(moduleId);
-                    newChromosome[chromosomeIndex] = module.getRandomProfessorId();
+                    Module module = timetable.GetModule(moduleId);
+                    newChromosome[chromosomeIndex] = module.GetRandomTeacherId();
                     chromosomeIndex++;
                 }
             }
@@ -114,7 +115,7 @@ namespace Algorithm
          * @param gene
          * @param offset
          */
-        public void setGene(int offset, int gene)
+        public void SetGene(int offset, int gene)
         {
             this.chromosome[offset] = gene;
         }
@@ -125,35 +126,25 @@ namespace Algorithm
          * @param offset
          * @return gene
          */
-        public int getGene(int offset)
+        public int GetGene(int offset)
         {
             return this.chromosome[offset];
         }
 
-        /**
-         * Store individual's fitness
-         * 
-         * @param fitness The individuals fitness
-         */
-        public void setFitness(double fitness)
+
+        public double Fitness
         {
-            this.fitness = fitness;
+            get
+            {
+                return this.fitness;
+            }
+            set { this.fitness = value; }
         }
 
-        /**
-         * Gets individual's fitness
-         * 
-         * @return The individual's fitness
-         */
-        public double getFitness()
+        public override string ToString()
         {
-            return this.fitness;
-        }
-
-        public String toString()
-        {
-            String output = "";
-            for (int gene = 0; gene < this.chromosome.length; gene++)
+            string output = "";
+            for (int gene = 0; gene < this.chromosome.Length; gene++)
             {
                 output += this.chromosome[gene] + ",";
             }
@@ -170,7 +161,7 @@ namespace Algorithm
          * @param gene
          * @return
          */
-        public bool containsGene(int gene)
+        public bool ContainsGene(int gene)
         {
             for (int i = 0; i < this.chromosome.Length; i++)
             {
