@@ -20,7 +20,7 @@ public partial class TimeSlot
 
 
     public string TimeSegment
-    //~考虑到Timeslot与类名或者变量的名字太相似，所以叫TimeSegment
+    //&考虑到Timeslot与类名或者变量的名字太相似，所以叫TimeSegment
     {
         get
         {
