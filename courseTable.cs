@@ -154,7 +154,12 @@ public partial class CourseTable
     {
         var rand = new Random();
         Room[] roomsArray = new Room[this.rooms.Count];
-        this.rooms.Values.CopyTo(roomsArray, this.rooms.Count);
+        int c = 0;
+        foreach (var item in this.rooms.Values)
+        {
+            roomsArray[c] = item;
+            c++;
+        }
         Room room = (Room)roomsArray[rand.Next(roomsArray.Length)];
         return room;
     }
@@ -212,7 +217,12 @@ public partial class CourseTable
     public Group[] GetGroupsAsArray()
     {
         Group[] groupArray = new Group[this.groups.Count];
-        this.groups.Values.CopyTo(groupArray, this.groups.Count);
+        int c = 0;
+        foreach (var item in this.groups.Values)
+        {
+            groupArray[c] = item;
+            c++;
+        }
         return groupArray;
     }
 
@@ -227,7 +237,12 @@ public partial class CourseTable
     {
         Random rand = new Random();
         TimeSlot[] timeslotArray = new TimeSlot[this.timeslots.Count];
-        this.timeslots.Values.CopyTo(timeslotArray, this.timeslots.Count);
+        int c = 0;
+        foreach (var item in this.timeslots.Values)
+        {
+            timeslotArray[c] = item;
+            c++;
+        }
         TimeSlot timeslot = timeslotArray[rand.Next(timeslotArray.Length)];
         return timeslot;
     }
@@ -256,7 +271,12 @@ public partial class CourseTable
 
         int numClasses = 0;
         Group[] groups = new Group[this.groups.Count];
-        this.groups.Values.CopyTo(groups, this.groups.Count);
+        int c = 0;
+        foreach (var item in this.groups.Values)
+        {
+            groups[c] = item;
+            c++;
+        }
         foreach (Group group in groups)
         {
             numClasses += group.Modules.Length;
