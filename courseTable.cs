@@ -89,7 +89,7 @@ public partial class CourseTable
     {
         this.timeslots.Add(timeslotId, new TimeSlot(timeslotId, timeslot));
     }
-    //!以下未从Java转换
+
     /**
      * Create classes using individual's chromosome
      * 
@@ -103,34 +103,34 @@ public partial class CourseTable
      * loop through the chromosome and create Class objects and store them.
      * 
      * @param individual
-     */
-    public void createClasses(Individual individual)
+     *///&根据染色体得到课程表,最重要的方法之一
+    public void CreateClasses(Individual individual)
     {
         // Init classes
-        Class classes[] = new Class[this.getNumClasses()];
+        Class[] classes = new Class[this.GetNumClasses()];
 
         // Get individual's chromosome
-        int chromosome[] = individual.getChromosome();
+        int[] chromosome = individual.Chromosome;
         int chromosomePos = 0;
         int classIndex = 0;
 
-        for (Group group : this.getGroupsAsArray())
+        foreach (Group group in this.GetGroupsAsArray())
         {
-            int moduleIds[] = group.getModuleIds();
-            for (int moduleId : moduleIds)
+            int[] moduleIds = group.Modules;
+            foreach (int moduleId in moduleIds)
             {
-                classes[classIndex] = new Class(classIndex, group.getGroupId(), moduleId);
+                classes[classIndex] = new Class(classIndex, group.Id, moduleId);
 
                 // Add timeslot
-                classes[classIndex].addTimeslot(chromosome[chromosomePos]);
+                classes[classIndex].TimeslotId = chromosome[chromosomePos];
                 chromosomePos++;
 
                 // Add room
-                classes[classIndex].setRoomId(chromosome[chromosomePos]);
+                classes[classIndex].RoomId = chromosome[chromosomePos];
                 chromosomePos++;
 
                 // Add professor
-                classes[classIndex].addProfessor(chromosome[chromosomePos]);
+                classes[classIndex].TeacherId = chromosome[chromosomePos];
                 chromosomePos++;
 
                 classIndex++;
@@ -140,12 +140,7 @@ public partial class CourseTable
         this.classes = classes;
     }
 
-    /**
-     * Get room from roomId
-     * 
-     * @param roomId
-     * @return room
-     */
+
     public Room GetRoom(int roomId)
     {
         if (!this.rooms.ContainsKey(roomId))
@@ -154,15 +149,13 @@ public partial class CourseTable
         }
         return (Room)this.rooms[roomId];
     }
-    /**
-     * Get random room
-     * 
-     * @return room
-     */
-    public Room getRandomRoom()
+
+    public Room GetRandomRoom()
     {
-        Object[] roomsArray = this.rooms.values().toArray();
-        Room room = (Room)roomsArray[(int)(roomsArray.length * Math.random())];
+        var rand = new Random();
+        Room[] roomsArray = new Room[this.rooms.Count];
+        this.rooms.Values.CopyTo(roomsArray, this.rooms.Count);
+        Room room = (Room)roomsArray[rand.Next(roomsArray.Length)];
         return room;
     }
 
@@ -172,9 +165,9 @@ public partial class CourseTable
      * @param professorId
      * @return professor
      */
-    public Professor getProfessor(int professorId)
+    public Teacher GetTeacher(int teacherId)
     {
-        return (Professor)this.professors.get(professorId);
+        return this.teachers[teacherId];
     }
 
     /**
@@ -183,9 +176,9 @@ public partial class CourseTable
      * @param moduleId
      * @return module
      */
-    public Module getModule(int moduleId)
+    public Module GetModule(int moduleId)
     {
-        return (Module)this.modules.get(moduleId);
+        return (Module)this.modules[moduleId];
     }
 
     /**
@@ -194,10 +187,10 @@ public partial class CourseTable
      * @param groupId
      * @return moduleId array
      */
-    public int[] getGroupModules(int groupId)
+    public int[] GetGroupModules(int groupId)
     {
-        Group group = (Group)this.groups.get(groupId);
-        return group.getModuleIds();
+        Group group = (Group)this.groups[groupId];
+        return group.Modules;
     }
 
     /**
@@ -206,7 +199,7 @@ public partial class CourseTable
      * @param groupId
      * @return group
      */
-    public Group getGroup(int groupId)
+    public Group GetGroup(int groupId)
     {
         return (Group)this.groups[groupId];
     }
@@ -216,31 +209,26 @@ public partial class CourseTable
      * 
      * @return array of groups
      */
-    public Group[] getGroupsAsArray()
+    public Group[] GetGroupsAsArray()
     {
-        return (Group[])this.groups.values().toArray(new Group[this.groups.size()]);
+        Group[] groupArray = new Group[this.groups.Count];
+        this.groups.Values.CopyTo(groupArray, this.groups.Count);
+        return groupArray;
     }
 
-    /**
-     * Get timeslot by timeslotId
-     * 
-     * @param timeslotId
-     * @return timeslot
-     */
-    public TimeSlot getTimeslot(int timeslotId)
+
+    public TimeSlot GetTimeslot(int timeslotId)
     {
         return (TimeSlot)this.timeslots[timeslotId];
     }
 
-    /**
-     * Get random timeslotId
-     * 
-     * @return timeslot
-     */
-    public TimeSlot getRandomTimeslot()
+
+    public TimeSlot GetRandomTimeslot()
     {
-        Object[] timeslotArray = this.timeslots.values().toArray();
-        Timeslot timeslot = (Timeslot)timeslotArray[(int)(timeslotArray.length * Math.random())];
+        Random rand = new Random();
+        TimeSlot[] timeslotArray = new TimeSlot[this.timeslots.Count];
+        this.timeslots.Values.CopyTo(timeslotArray, this.timeslots.Count);
+        TimeSlot timeslot = timeslotArray[rand.Next(timeslotArray.Length)];
         return timeslot;
     }
 
@@ -249,7 +237,7 @@ public partial class CourseTable
      * 
      * @return classes
      */
-    public Class[] getClasses()
+    public Class[] GetClasses()
     {
         return this.classes;
     }
@@ -259,7 +247,7 @@ public partial class CourseTable
      * 
      * @return numClasses
      */
-    public int getNumClasses()
+    public int GetNumClasses()
     {
         if (this.numClasses > 0)
         {
@@ -267,10 +255,11 @@ public partial class CourseTable
         }
 
         int numClasses = 0;
-        Group groups[] = (Group[])this.groups.values().toArray(new Group[this.groups.size()]);
-        for (Group group : groups)
+        Group[] groups = new Group[this.groups.Count];
+        this.groups.Values.CopyTo(groups, this.groups.Count);
+        foreach (Group group in groups)
         {
-            numClasses += group.getModuleIds().length;
+            numClasses += group.Modules.Length;
         }
         this.numClasses = numClasses;
 
@@ -297,16 +286,16 @@ public partial class CourseTable
      * a difference, but for larger values it certainly does.
      * 
      * @return numClashes
-     */
-    public int calcClashes()
+     *///?检测冲突
+    public int CalcClashes()
     {
         int clashes = 0;
 
-        for (Class classA : this.classes)
+        foreach (Class classA in this.classes)
         {
             // Check room capacity
-            int roomCapacity = this.getRoom(classA.getRoomId()).getRoomCapacity();
-            int groupSize = this.getGroup(classA.getGroupId()).getGroupSize();
+            int roomCapacity = this.GetRoom(classA.RoomId).Capacity;
+            int groupSize = this.GetGroup(classA.GroupId).Size;
 
             if (roomCapacity < groupSize)
             {
@@ -314,10 +303,10 @@ public partial class CourseTable
             }
 
             // Check if room is taken
-            for (Class classB : this.classes)
+            foreach (Class classB in this.classes)
             {
-                if (classA.getRoomId() == classB.getRoomId() && classA.getTimeslotId() == classB.getTimeslotId()
-                        && classA.getClassId() != classB.getClassId())
+                if (classA.RoomId == classB.RoomId && classA.TimeslotId == classB.TimeslotId
+                        && classA.ClassId != classB.ClassId)
                 {
                     clashes++;
                     break;
@@ -325,11 +314,11 @@ public partial class CourseTable
             }
 
             // Check if professor is available
-            for (Class classB : this.classes)
+            foreach (Class classB in this.classes)
             {
-                if (classA.getProfessorId() == classB.getProfessorId()
-                        && classA.getTimeslotId() == classB.getTimeslotId()
-                        && classA.getClassId() != classB.getClassId())
+                if (classA.TeacherId == classB.TeacherId
+                        && classA.TimeslotId == classB.TimeslotId
+                        && classA.ClassId != classB.ClassId)
                 {
                     clashes++;
                     break;

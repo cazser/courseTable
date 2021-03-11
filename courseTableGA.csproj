@@ -7,14 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="class.cs" />
+    <Compile Include="courseTable.cs" />
+    <Compile Include="GeneticAlgorithm.cs" />
+    <Compile Include="group.cs" />
+    <Compile Include="Individual.cs" />
+    <Compile Include="module.cs" />
+    <Compile Include="Population.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="room.cs" />
     <Compile Include="teacher.cs" />
     <Compile Include="timeSlot.cs" />
-    <Compile Include="class.cs" />
-    <Compile Include="group.cs" />
-    <Compile Include="module.cs" />
-    <Compile Include="courseTable.cs" />
-    <Compile Include="Individual.cs" />
   </ItemGroup>
 </Project>
