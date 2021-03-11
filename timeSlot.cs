@@ -1,30 +1,33 @@
-public partial class TimeSlot
+namespace Course
 {
-    private int timeslotId;
-    private string timeslot;
-
-    public TimeSlot(int timeslotId, string timeslot)
+    public partial class TimeSlot
     {
-        this.timeslotId = timeslotId;
-        this.timeslot = timeslot;
-    }
+        private int timeslotId;
+        private string timeslot;
 
-
-    public int Id
-    {
-        get
+        public TimeSlot(int timeslotId, string timeslot)
         {
-            return this.timeslotId;
+            this.timeslotId = timeslotId;
+            this.timeslot = timeslot;
         }
-    }
 
 
-    public string TimeSegment
-    //&考虑到Timeslot与类名或者变量的名字太相似，所以叫TimeSegment
-    {
-        get
+        public int Id
         {
-            return this.timeslot;
+            get
+            {
+                return this.timeslotId;
+            }
+        }
+
+
+        public string TimeSegment
+        //&考虑到Timeslot与类名或者变量的名字太相似，所以叫TimeSegment
+        {
+            get
+            {
+                return this.timeslot;
+            }
         }
     }
 }

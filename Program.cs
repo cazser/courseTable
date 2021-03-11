@@ -1,4 +1,5 @@
 ﻿using System;
+using Course;
 
 namespace courseTableGA
 {

@@ -1,28 +1,31 @@
-public partial class Room
+namespace Course
 {
-    private int roomId;
-    private string roomAddress;
-    private int capacity;
-
-    public Room(int Id, string address, int _capa)
+    public partial class Room
     {
-        this.roomId = Id;
-        this.roomAddress = address;
-        this.capacity = _capa;
-    }
+        private int roomId;
+        private string roomAddress;
+        private int capacity;
 
-    public int Id
-    {
-        get { return this.roomId; }
-    }
+        public Room(int Id, string address, int _capa)
+        {
+            this.roomId = Id;
+            this.roomAddress = address;
+            this.capacity = _capa;
+        }
 
-    public string Address
-    {
-        get { return this.roomAddress; }
-    }
+        public int Id
+        {
+            get { return this.roomId; }
+        }
 
-    public int Capacity
-    {
-        get { return this.capacity; }
+        public string Address
+        {
+            get { return this.roomAddress; }
+        }
+
+        public int Capacity
+        {
+            get { return this.capacity; }
+        }
     }
 }

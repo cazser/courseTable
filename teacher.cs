@@ -1,21 +1,24 @@
-public partial class Teacher
+namespace Course
 {
-    private int teacherId;
-    private string teacherName;
-
-    public Teacher(int id, string name)
+    public partial class Teacher
     {
-        this.teacherId = id;
-        this.teacherName = name;
-    }
+        private int teacherId;
+        private string teacherName;
 
-    public int Id
-    {
-        get { return this.teacherId; }
-    }
+        public Teacher(int id, string name)
+        {
+            this.teacherId = id;
+            this.teacherName = name;
+        }
 
-    public string Name
-    {
-        get { return this.teacherName; }
+        public int Id
+        {
+            get { return this.teacherId; }
+        }
+
+        public string Name
+        {
+            get { return this.teacherName; }
+        }
     }
 }

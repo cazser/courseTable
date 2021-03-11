@@ -12,5 +12,8 @@
     <Compile Include="teacher.cs" />
     <Compile Include="timeSlot.cs" />
     <Compile Include="class.cs" />
+    <Compile Include="group.cs" />
+    <Compile Include="module.cs" />
+    <Compile Include="courseTable.cs" />
   </ItemGroup>
 </Project>
