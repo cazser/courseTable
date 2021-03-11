@@ -2,65 +2,47 @@ namespace Algorithm
 {
     public partial class GeneticAlgorithm
     {
+        private int populationSize;
+        private double mutationRate;
+        private double crossoverRate;
+        private int elitismCount;
+        protected int tournamentSize;
+
+        public GeneticAlgorithm(int populationSize, double mutationRate, double crossoverRate, int elitismCount,
+                int tournamentSize)
+        {
+
+            this.populationSize = populationSize;
+            this.mutationRate = mutationRate;
+            this.crossoverRate = crossoverRate;
+            this.elitismCount = elitismCount;
+            this.tournamentSize = tournamentSize;
+        }
+
+        public Population initPopulation(CourseTable timetable)
+        {
+            // Initialize population
+            Population population = new Population(this.populationSize, timetable);
+            return population;
+        }
+
+        public bool isTerminationConditionMet(int generationsCount, int maxGenerations)
+        {
+            return (generationsCount > maxGenerations);
+        }
+
+
+        public bool isTerminationConditionMet(Population population)
+        {
+            return population.GetFittest(0).Fitness == 1.0;
+        }
+
+
 
     }
-}
+}//&end of Algorithm.GeneticAlgorithm
 public class GeneticAlgorithm
 {
-
-    private int populationSize;
-    private double mutationRate;
-    private double crossoverRate;
-    private int elitismCount;
-    protected int tournamentSize;
-
-    public GeneticAlgorithm(int populationSize, double mutationRate, double crossoverRate, int elitismCount,
-            int tournamentSize)
-    {
-
-        this.populationSize = populationSize;
-        this.mutationRate = mutationRate;
-        this.crossoverRate = crossoverRate;
-        this.elitismCount = elitismCount;
-        this.tournamentSize = tournamentSize;
-    }
-
-    /**
-     * Initialize population
-     * 
-     * @param chromosomeLength The length of the individuals chromosome
-     * @return population The initial population generated
-     */
-    public Population initPopulation(Timetable timetable)
-    {
-        // Initialize population
-        Population population = new Population(this.populationSize, timetable);
-        return population;
-    }
-
-    /**
-     * Check if population has met termination condition
-     * 
-     * @param generationsCount Number of generations passed
-     * @param maxGenerations   Number of generations to terminate after
-     * @return boolean True if termination condition met, otherwise, false
-     */
-    public boolean isTerminationConditionMet(int generationsCount, int maxGenerations)
-    {
-        return (generationsCount > maxGenerations);
-    }
-
-    /**
-     * Check if population has met termination condition
-     *
-     * @param population
-     * @return boolean True if termination condition met, otherwise, false
-     */
-    public boolean isTerminationConditionMet(Population population)
-    {
-        return population.getFittest(0).getFitness() == 1.0;
-    }
-
     /**
      * Calculate individual's fitness value
      * 

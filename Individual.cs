@@ -2,7 +2,7 @@ using System;
 using Course;
 namespace Algorithm
 {
-    public partial class Individual
+    public partial class Individual : IComparable
     {
 
         private int[] chromosome;
@@ -171,6 +171,23 @@ namespace Algorithm
                 }
             }
             return false;
+        }
+
+        public int CompareTo(object obj)
+        {
+            int result;
+            try
+            {
+                Individual another = obj as Individual;
+                if (this.Fitness > another.Fitness)
+                {
+                    result = 0;
+                }
+                else
+                    result = 1;
+                return result;
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
         }
 
     }
