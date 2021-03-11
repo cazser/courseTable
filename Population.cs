@@ -76,7 +76,7 @@ namespace Algorithm
             return population[offset];
         }
 
-        public void shuffle()
+        public void Shuffle()
         {
             Random rnd = new Random();
             for (int i = population.Length - 1; i > 0; i--)
