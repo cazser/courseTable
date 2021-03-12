@@ -1,0 +1,210 @@
+[
+{
+"Class" :1
+,"Module" : "Computer Science"
+,"Group" : "1"
+,"Room" :"2"
+,"Teacher" : "Mrs E Mitchell"
+,"Time": "Mon 11:00 - 13:00"
+}
+,{
+"Class" :2
+,"Module" : "高等数学"
+,"Group" : "1"
+,"Room" :"5"
+,"Teacher" : "Mrs E Mitchell"
+,"Time": "Mon 9:00 - 11:00"
+}
+,{
+"Class" :3
+,"Module" : "大学物理"
+,"Group" : "1"
+,"Room" :"4"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Wed 11:00 - 13:00"
+}
+,{
+"Class" :4
+,"Module" : "大学英语"
+,"Group" : "2"
+,"Room" :"5"
+,"Teacher" : "Dr R Williams"
+,"Time": "Tue 9:00 - 11:00"
+}
+,{
+"Class" :5
+,"Module" : "高等数学"
+,"Group" : "2"
+,"Room" :"2"
+,"Teacher" : "Dr P Smith"
+,"Time": "Fri 9:00 - 11:00"
+}
+,{
+"Class" :6
+,"Module" : "History"
+,"Group" : "2"
+,"Room" :"1"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Mon 9:00 - 11:00"
+}
+,{
+"Class" :7
+,"Module" : "Drama"
+,"Group" : "2"
+,"Room" :"2"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Fri 13:00 - 15:00"
+}
+,{
+"Class" :8
+,"Module" : "高等数学"
+,"Group" : "3"
+,"Room" :"1"
+,"Teacher" : "Dr P Smith"
+,"Time": "Thu 9:00 - 11:00"
+}
+,{
+"Class" :9
+,"Module" : "大学物理"
+,"Group" : "3"
+,"Room" :"4"
+,"Teacher" : "Dr R Williams"
+,"Time": "Wed 9:00 - 11:00"
+}
+,{
+"Class" :10
+,"Module" : "History"
+,"Group" : "3"
+,"Room" :"5"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Fri 11:00 - 13:00"
+}
+,{
+"Class" :11
+,"Module" : "Computer Science"
+,"Group" : "4"
+,"Room" :"5"
+,"Teacher" : "Dr P Smith"
+,"Time": "Wed 13:00 - 15:00"
+}
+,{
+"Class" :12
+,"Module" : "大学物理"
+,"Group" : "4"
+,"Room" :"2"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Tue 13:00 - 15:00"
+}
+,{
+"Class" :13
+,"Module" : "大学英语"
+,"Group" : "5"
+,"Room" :"1"
+,"Teacher" : "Dr R Williams"
+,"Time": "Fri 13:00 - 15:00"
+}
+,{
+"Class" :14
+,"Module" : "高等数学"
+,"Group" : "5"
+,"Room" :"2"
+,"Teacher" : "Dr P Smith"
+,"Time": "Mon 11:00 - 13:00"
+}
+,{
+"Class" :15
+,"Module" : "History"
+,"Group" : "5"
+,"Room" :"5"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Thu 13:00 - 15:00"
+}
+,{
+"Class" :16
+,"Module" : "Computer Science"
+,"Group" : "6"
+,"Room" :"5"
+,"Teacher" : "Mrs E Mitchell"
+,"Time": "Mon 13:00 - 15:00"
+}
+,{
+"Class" :17
+,"Module" : "大学物理"
+,"Group" : "6"
+,"Room" :"4"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Fri 9:00 - 11:00"
+}
+,{
+"Class" :18
+,"Module" : "History"
+,"Group" : "6"
+,"Room" :"5"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Wed 9:00 - 11:00"
+}
+,{
+"Class" :19
+,"Module" : "Computer Science"
+,"Group" : "7"
+,"Room" :"5"
+,"Teacher" : "Mrs E Mitchell"
+,"Time": "Tue 13:00 - 15:00"
+}
+,{
+"Class" :20
+,"Module" : "高等数学"
+,"Group" : "7"
+,"Room" :"2"
+,"Teacher" : "Dr P Smith"
+,"Time": "Tue 11:00 - 13:00"
+}
+,{
+"Class" :21
+,"Module" : "大学英语"
+,"Group" : "8"
+,"Room" :"2"
+,"Teacher" : "Dr P Smith"
+,"Time": "Wed 11:00 - 13:00"
+}
+,{
+"Class" :22
+,"Module" : "Drama"
+,"Group" : "8"
+,"Room" :"2"
+,"Teacher" : "Mr A Thompson"
+,"Time": "Mon 13:00 - 15:00"
+}
+,{
+"Class" :23
+,"Module" : "Computer Science"
+,"Group" : "9"
+,"Room" :"1"
+,"Teacher" : "Dr P Smith"
+,"Time": "Thu 13:00 - 15:00"
+}
+,{
+"Class" :24
+,"Module" : "Drama"
+,"Group" : "9"
+,"Room" :"2"
+,"Teacher" : "Dr P Smith"
+,"Time": "Wed 11:00 - 13:00"
+}
+,{
+"Class" :25
+,"Module" : "高等数学"
+,"Group" : "10"
+,"Room" :"4"
+,"Teacher" : "Mrs E Mitchell"
+,"Time": "Fri 11:00 - 13:00"
+}
+,{
+"Class" :26
+,"Module" : "大学物理"
+,"Group" : "10"
+,"Room" :"1"
+,"Teacher" : "Dr R Williams"
+,"Time": "Fri 11:00 - 13:00"
+}
+]

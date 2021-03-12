@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+//?using System.Text.Json;
 using Course;
 using Algorithm;
 namespace courseTableGA
@@ -7,6 +9,7 @@ namespace courseTableGA
     {
         static void Main(string[] args)
         {
+
             // Get a Timetable object with all the available information.
             CourseTable timetable = InitializeTimetable();
 
@@ -49,17 +52,58 @@ namespace courseTableGA
             // Print classes
             Console.WriteLine();
             Class[] classes = timetable.GetClasses();
-            int classIndex = 1;
-            foreach (Class bestClass in classes)
+            string path = @"output.json";
+            if (File.Exists(path))
             {
-                Console.WriteLine("Class " + classIndex + ":");
-                Console.WriteLine("Module: " + timetable.GetModule(bestClass.ModuleId).ModuleName);
-                Console.WriteLine("Group: " + timetable.GetGroup(bestClass.GroupId).Id);
-                Console.WriteLine("Room: " + timetable.GetRoom(bestClass.RoomId).Id);
-                Console.WriteLine("Teacher: " + timetable.GetTeacher(bestClass.TeacherId).Name);
-                Console.WriteLine("Time: " + timetable.GetTimeslot(bestClass.TimeslotId).TimeSegment);
-                Console.WriteLine("-----");
-                classIndex++;
+                File.Delete(path);
+            }
+
+            using (FileStream fs = File.Create(path))
+            {
+                //?Utf8JsonWriter writer = new Utf8JsonWriter(fs);
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                    bool firstItem = true;
+                    sw.WriteLine("[");
+                    int classIndex = 1;
+
+                    foreach (Class bestClass in classes)
+                    {
+                        if (firstItem)
+                        {
+                            firstItem = false;
+                        }
+                        else
+                        {
+                            sw.Write(",");
+                        }
+                        sw.WriteLine("{");
+
+                        sw.WriteLine("\"Class\" " + ":" + classIndex);
+                        sw.Write(",");
+
+                        sw.WriteLine("\"Module\" : " + "\"" + timetable.GetModule(bestClass.ModuleId).ModuleName + "\"");
+                        sw.Write(",");
+
+                        sw.WriteLine("\"Group\" : " + "\"" + timetable.GetGroup(bestClass.GroupId).Id + "\"");
+                        sw.Write(",");
+
+                        sw.WriteLine("\"Room\" :" + "\"" + timetable.GetRoom(bestClass.RoomId).Id + "\"");
+                        sw.Write(",");
+
+                        sw.WriteLine("\"Teacher\" : " + "\"" + timetable.GetTeacher(bestClass.TeacherId).Name + "\"");
+                        sw.Write(",");
+
+                        sw.WriteLine("\"Time\": " + "\"" + timetable.GetTimeslot(bestClass.TimeslotId).TimeSegment + "\"");
+
+
+                        classIndex++;
+                        sw.WriteLine("}");
+
+
+                    }
+                    sw.WriteLine("]");
+                }
             }
         }
 
