@@ -9,7 +9,7 @@ namespace courseTableGA
     {
         static void Main(string[] args)
         {
-
+            DateTime start = DateTime.Now;
             // Get a Timetable object with all the available information.
             CourseTable timetable = InitializeTimetable();
 
@@ -79,19 +79,19 @@ namespace courseTableGA
                         }
                         sw.WriteLine("{");
 
-                        sw.WriteLine("\"Class\" " + ":" + classIndex);
+                        sw.Write("\"Class\" " + ":" + classIndex);
                         sw.Write(",");
 
-                        sw.WriteLine("\"Module\" : " + "\"" + timetable.GetModule(bestClass.ModuleId).ModuleName + "\"");
+                        sw.Write("\"Module\" : " + "\"" + timetable.GetModule(bestClass.ModuleId).ModuleName + "\"");
                         sw.Write(",");
 
-                        sw.WriteLine("\"Group\" : " + "\"" + timetable.GetGroup(bestClass.GroupId).Id + "\"");
+                        sw.Write("\"Group\" : " + "\"" + timetable.GetGroup(bestClass.GroupId).Id + "\"");
                         sw.Write(",");
 
-                        sw.WriteLine("\"Room\" :" + "\"" + timetable.GetRoom(bestClass.RoomId).Id + "\"");
+                        sw.Write("\"Room\" :" + "\"" + timetable.GetRoom(bestClass.RoomId).Id + "\"");
                         sw.Write(",");
 
-                        sw.WriteLine("\"Teacher\" : " + "\"" + timetable.GetTeacher(bestClass.TeacherId).Name + "\"");
+                        sw.Write("\"Teacher\" : " + "\"" + timetable.GetTeacher(bestClass.TeacherId).Name + "\"");
                         sw.Write(",");
 
                         sw.WriteLine("\"Time\": " + "\"" + timetable.GetTimeslot(bestClass.TimeslotId).TimeSegment + "\"");
@@ -105,6 +105,8 @@ namespace courseTableGA
                     sw.WriteLine("]");
                 }
             }
+            DateTime end = DateTime.Now;
+            Console.WriteLine(DateDiff(start, end));
         }
 
         private static CourseTable InitializeTimetable()
@@ -161,6 +163,17 @@ namespace courseTableGA
             timetable.AddGroup(9, 24, new int[] { 1, 6 });
             timetable.AddGroup(10, 25, new int[] { 3, 4 });
             return timetable;
+        }
+
+        private static string DateDiff(DateTime DateTime1, DateTime DateTime2)
+        {
+            string dateDiff = null;
+            TimeSpan ts1 = new TimeSpan(DateTime1.Ticks);
+            TimeSpan ts2 = new
+            TimeSpan(DateTime2.Ticks);
+            TimeSpan ts = ts1.Subtract(ts2).Duration();
+            dateDiff = ts.Days.ToString() + "天" + ts.Hours.ToString() + "小时" + ts.Minutes.ToString() + "分钟" + ts.Seconds.ToString() + "秒";
+            return dateDiff;
         }
     }
 }

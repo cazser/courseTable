@@ -181,10 +181,10 @@ namespace Algorithm
                 Individual another = obj as Individual;
                 if (this.Fitness > another.Fitness)
                 {
-                    result = 0;
+                    result = 1;
                 }
                 else
-                    result = 1;
+                    result = 0;
                 return result;
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
