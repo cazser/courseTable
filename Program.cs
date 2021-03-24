@@ -14,7 +14,7 @@ namespace courseTableGA
             CourseTable timetable = InitializeTimetable();
 
             // Initialize GA
-            GeneticAlgorithm ga = new GeneticAlgorithm(100, 0.01, 0.9, 2, 5);
+            GeneticAlgorithm ga = new GeneticAlgorithm(200, 0.01, 0.9, 2, 5);
 
             // Initialize population
             Population population = ga.InitPopulation(timetable);
@@ -105,6 +105,7 @@ namespace courseTableGA
                     sw.WriteLine("]");
                 }
             }
+
             DateTime end = DateTime.Now;
             Console.WriteLine(DateDiff(start, end));
         }
