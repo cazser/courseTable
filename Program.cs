@@ -9,6 +9,11 @@ namespace courseTableGA
     {
         static void Main(string[] args)
         {
+
+            string sArguments = @"main.py";//这里是python的文件名字
+            PythonCaller.RunPythonScript(sArguments, "-u", new string[] { "one" });
+            //pythonCaller.Button_Click();
+
             DateTime start = DateTime.Now;
             // Get a Timetable object with all the available information.
             CourseTable timetable = InitializeTimetable();
@@ -108,6 +113,7 @@ namespace courseTableGA
 
             DateTime end = DateTime.Now;
             Console.WriteLine(DateDiff(start, end));
+
         }
 
         private static CourseTable InitializeTimetable()

@@ -8,9 +8,12 @@
         "activityBar.background": "#007acc",
         "activityBar.foreground": "#ffffff",
         "activityBar.inactiveForeground": "#ffffff",
-        "editor.wordHighlightBackground": "#79b8ff",
+        "editor.wordHighlightBackground": "#e3e3e3",
+        "editor.background": "#f7f7f7",
+        "editor.foreground": "#000000",
         "progressBar.background": "#ff00ff",
         "scrollbar.background": "#ff0000",
-        "sideBar.background": "#ffffff"
+        "sideBar.background": "#ffffff",
+
     }
 }
