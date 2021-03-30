@@ -19,8 +19,11 @@ namespace courseTableGA
             CourseTable timetable = InitializeTimetable();
 
             // Initialize GA
-            GeneticAlgorithm ga = new GeneticAlgorithm(200, 0.01, 0.9, 2, 5);
-
+            GeneticAlgorithm ga = new GeneticAlgorithm(800, 0.01, 0.9, 2, 5);
+            //?100-0.25 0.47
+            //?200-1.21 1.31
+            //?400-2.36 3.37
+            //?800-7.36
             // Initialize population
             Population population = ga.InitPopulation(timetable);
 
@@ -183,6 +186,18 @@ namespace courseTableGA
             timetable.AddTeacher(12, "外聘");
             timetable.AddTeacher(13, "周国辉");
             timetable.AddTeacher(14, "李持磊");
+            timetable.AddTeacher(15, "李世明");
+            timetable.AddTeacher(16, "杜军");
+            timetable.AddTeacher(17, "郑岩");
+            timetable.AddTeacher(18, "刘仁辉");
+            timetable.AddTeacher(19, "周英");
+            timetable.AddTeacher(20, "倪蕴涛");
+            timetable.AddTeacher(21, "穆全起");
+            timetable.AddTeacher(22, "姚艳雪");
+            timetable.AddTeacher(23, "朱海龙");
+            timetable.AddTeacher(24, "尹启天");
+            timetable.AddTeacher(25, "周英");
+            timetable.AddTeacher(26, "付宝君");
 
 
 
@@ -214,7 +229,26 @@ namespace courseTableGA
             timetable.AddModule(23, "游戏概论", "游戏概论", new int[] { 13 });
             timetable.AddModule(24, "高等数学1", "高等数学1", new int[] { 14 });
 
+            timetable.AddModule(25, "计算机网络", "计算机网络", new int[] { 15 });
+            timetable.AddModule(26, "物联网通信技术", "物联网通信技术", new int[] { 16 });
+            timetable.AddModule(27, "数据处理与智能决策", "数据处理与智能决策", new int[] { 17 });
+            timetable.AddModule(28, "物联网通信课程设计", "物联网通信课程设计", new int[] { 16 });
+            timetable.AddModule(29, "Linux程序设计", "Linux程序设计", new int[] { 18 });
+            timetable.AddModule(30, "网络攻防", "网络攻防", new int[] { 15 });
 
+            timetable.AddModule(31, "数据结构", "数据结构", new int[] { 19 });
+            timetable.AddModule(32, "数据库原理与应用", "数据库原理与应用", new int[] { 18 });
+            timetable.AddModule(33, "概率与数理统计", "概率与数理统计", new int[] { 8 });
+            timetable.AddModule(34, "数字电子技术", "数字电子技术", new int[] { 20, 21 });
+            timetable.AddModule(35, "Linux操作系统---Linux操作系统应用(教务系统里的名称)",
+                "Linux操作系统---Linux操作系统应用(教务系统里的名称)", new int[] { 22 });
+            timetable.AddModule(36, "物联网专业英语", "物联网专业英语", new int[] { 21 });
+            timetable.AddModule(37, "Web程序设计", "Web程序设计", new int[] { 22 });
+            timetable.AddModule(38, "Python语言", "Python语言", new int[] { 23 });
+            timetable.AddModule(39, "移动终端软件开发", "移动终端软件开发", new int[] { 24 });
+
+            timetable.AddModule(40, "物联网工程导论", "物联网工程导论", new int[] { 26 });
+            timetable.AddModule(41, "高级语言程序设计", "高级语言程序设计", new int[] { 25 });
 
 
 
@@ -228,6 +262,10 @@ namespace courseTableGA
             timetable.AddGroup(2, 60, new int[] { 9, 10, 11, 12, 13,
                                                   14, 15, 16, 17, 18, 19});
             timetable.AddGroup(3, 60, new int[] { 20, 21, 22, 23, 24 });
+            timetable.AddGroup(4, 60, new int[] { 25, 26, 27, 28, 29, 30 });
+            timetable.AddGroup(5, 60, new int[] { 31, 32, 33, 34, 35, 36, 37, 38, 39 });
+            timetable.AddGroup(6, 60, new int[] { 40, 41 });
+
             return timetable;
         }
 
