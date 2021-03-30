@@ -20,10 +20,10 @@ namespace courseTableGA
 
             // Initialize GA
             GeneticAlgorithm ga = new GeneticAlgorithm(800, 0.01, 0.9, 2, 5);
-            //?100-0.25 0.47
-            //?200-1.21 1.31
-            //?400-2.36 3.37
-            //?800-7.36
+            //?100-0.25 0.47 1.41
+            //?200-1.21 1.31 2.54 
+            //?400-2.36 3.37 6.6
+            //?800-7.36 10.53 15.01
             // Initialize population
             Population population = ga.InitPopulation(timetable);
 
@@ -198,6 +198,44 @@ namespace courseTableGA
             timetable.AddTeacher(24, "尹启天");
             timetable.AddTeacher(25, "周英");
             timetable.AddTeacher(26, "付宝君");
+            timetable.AddTeacher(27, "王金江");
+            timetable.AddTeacher(28, "付伟");
+            timetable.AddTeacher(29, "李志聪");
+            timetable.AddTeacher(30, "刘明宇");
+            timetable.AddTeacher(31, "李英梅");
+            timetable.AddTeacher(32, "林琳");
+            timetable.AddTeacher(33, "刘靖宇");
+            timetable.AddTeacher(34, "黄玉研");
+            timetable.AddTeacher(35, "石晔琼");
+            timetable.AddTeacher(36, "孙鹏飞");
+            timetable.AddTeacher(37, "季伟东");
+            timetable.AddTeacher(38, "李晶");
+            timetable.AddTeacher(39, "丁云鸿");
+            timetable.AddTeacher(40, "伦立军");
+            timetable.AddTeacher(41, "马宁");
+            timetable.AddTeacher(42, "边奕心");
+            timetable.AddTeacher(43, "于瑞彬");
+            timetable.AddTeacher(44, "黄玉妍");
+            timetable.AddTeacher(45, "李玉霞");
+            timetable.AddTeacher(46, "朱晓");
+            timetable.AddTeacher(47, "张军");
+            timetable.AddTeacher(48, "于丹");
+            timetable.AddTeacher(49, "张广玲");
+            timetable.AddTeacher(50, "王洪侠");
+            timetable.AddTeacher(51, "王秀珍");
+            timetable.AddTeacher(52, "魏洪伟");
+            timetable.AddTeacher(53, "刘月兰");
+            timetable.AddTeacher(54, "李红宇");
+            timetable.AddTeacher(55, "刘玉喜");
+            timetable.AddTeacher(56, "赵松");
+            timetable.AddTeacher(57, "常晓娟");
+            timetable.AddTeacher(58, "刑凯");
+            timetable.AddTeacher(59, "马瑞华");
+            timetable.AddTeacher(60, "于延");
+            timetable.AddTeacher(61, "范雪琴");
+            timetable.AddTeacher(62, "伊波");
+            timetable.AddTeacher(63, "魏红伟");
+
 
 
 
@@ -250,6 +288,60 @@ namespace courseTableGA
             timetable.AddModule(40, "物联网工程导论", "物联网工程导论", new int[] { 26 });
             timetable.AddModule(41, "高级语言程序设计", "高级语言程序设计", new int[] { 25 });
 
+            timetable.AddModule(42, "线性代数", "线性代数", new int[] { 27 });
+            timetable.AddModule(43, "计算与信息素养", "计算与信息素养", new int[] { 28 });
+            timetable.AddModule(44, "高级语言程序设计", "高级语言程序设计", new int[] { 29 });
+
+            timetable.AddModule(45, "*数据结构", "*数据结构", new int[] { 30 });
+            timetable.AddModule(46, "*数据库原理", "*数据库原理", new int[] { 31, 32 });
+            timetable.AddModule(47, "概率与数理统计", "概率与数理统计", new int[] { 33 });
+            timetable.AddModule(48, "数据结构课程设计", "数据结构课程设计", new int[] { 30, 34, 35, 32 });
+            timetable.AddModule(49, "第二外语（日语）", "第二外语（日语）", new int[] { 36 });
+            timetable.AddModule(50, "Web程序设计", "Web程序设计", new int[] { 35 });
+            timetable.AddModule(51, "数字电路", "数字电路", new int[] { 37 });
+
+            timetable.AddModule(52, "计算机组成原理", "计算机组成原理", new int[] { 38 });
+            timetable.AddModule(53, "*软件需求分析", "*软件需求分析", new int[] { 39 });
+            timetable.AddModule(54, "*操作系统", "*操作系统", new int[] { 40 });
+            timetable.AddModule(55, "UML统一建模", "UML统一建模", new int[] { 41 });
+            timetable.AddModule(56, "软件测试与质量保证", "软件测试与质量保证", new int[] { 42 });
+            timetable.AddModule(57, "软件框架开发技术", "软件框架开发技术", new int[] { 43 });
+            timetable.AddModule(58, "移动端应用开发基础", "移动端应用开发基础", new int[] { 29 });
+            timetable.AddModule(59, "个人级软件开发", "个人级软件开发", new int[] { 28, 37, 41, 32 });
+
+            timetable.AddModule(60, "专业综合", "专业综合", new int[] { 44 });
+            timetable.AddModule(61, "毕业实习实训", "毕业实习实训", new int[] { 28, 37, 32, 42, 35 });
+
+            timetable.AddModule(62, "编译原理", "编译原理", new int[] { 45, 46 });
+            timetable.AddModule(63, "操作系统", "操作系统", new int[] { 47, 48 });
+            timetable.AddModule(64, "单片机原理与应用", "单片机原理与应用", new int[] { 49, 50 });
+            timetable.AddModule(65, "计算机网络原理", "计算机网络原理", new int[] { 51 });
+            timetable.AddModule(66, "专业英语", "专业英语", new int[] { 52 });
+            timetable.AddModule(67, "数据库应用与设计", "数据库应用与设计", new int[] { 49, 53 });
+            timetable.AddModule(68, "SSH框架开发技术", "SSH框架开发技术", new int[] { 54 });
+            timetable.AddModule(69, "UML统一建模", "UML统一建模", new int[] { 53 });
+            timetable.AddModule(70, "ARM体系结构", "ARM体系结构", new int[] { 49 });
+            timetable.AddModule(71, "C++程序设计", "C++程序设计", new int[] { 55 });
+            timetable.AddModule(72, "编译原理课程设计", "编译原理课程设计", new int[] { 45, 46, 56 });
+
+            timetable.AddModule(73, "数据结构", "数据结构", new int[] { 63, 57 });
+            timetable.AddModule(74, "数字逻辑", "数字逻辑", new int[] { 58, 50 });
+            timetable.AddModule(75, "计算方法", "计算方法", new int[] { 59 });
+            timetable.AddModule(76, "计算机赋值教学", "计算机辅助教学", new int[] { 55, 56 });
+            timetable.AddModule(77, "Web程序设计", "Web程序设计", new int[] { 57, 60 });
+            timetable.AddModule(78, "数据结构课程设计", "数据结构课程设计", new int[] { 63, 57 });
+
+            timetable.AddModule(79, "高级语言程序设计", "高级语言程序设计", new int[] { 61, 54 });
+            timetable.AddModule(80, "计算机导论", "计算机导论", new int[] { 49 });
+
+            timetable.AddModule(81, "高级语言程序设计", "高级语言程序设计", new int[] { 60 });
+            timetable.AddModule(82, "计算机系统基础", "计算机系统基础", new int[] { 62 });
+
+            timetable.AddModule(83, "高级语言程序设计", "高级语言程序设计", new int[] { 60 });
+            timetable.AddModule(84, "计算机系统基础", "计算机系统基础", new int[] { 62 });
+
+
+
 
 
 
@@ -265,6 +357,20 @@ namespace courseTableGA
             timetable.AddGroup(4, 60, new int[] { 25, 26, 27, 28, 29, 30 });
             timetable.AddGroup(5, 60, new int[] { 31, 32, 33, 34, 35, 36, 37, 38, 39 });
             timetable.AddGroup(6, 60, new int[] { 40, 41 });
+
+            timetable.AddGroup(7, 60, new int[] { 42, 43, 44 });
+            timetable.AddGroup(8, 60, new int[] { 45, 46, 47, 48, 49, 50, 51 });
+            timetable.AddGroup(9, 60, new int[] { 52, 53, 54, 55, 56, 57, 58, 59 });
+            timetable.AddGroup(10, 60, new int[] { 60, 61 });
+
+            timetable.AddGroup(11, 60, new int[] { 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72 });
+            timetable.AddGroup(12, 60, new int[] { 73, 74, 75, 76, 78 });
+            timetable.AddGroup(13, 60, new int[] { 79, 80 });
+            timetable.AddGroup(14, 60, new int[] { 81, 82 });
+            timetable.AddGroup(15, 60, new int[] { 83, 84 });
+
+
+
 
             return timetable;
         }
